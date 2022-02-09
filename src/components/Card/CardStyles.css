@@ -1,0 +1,48 @@
+.card {
+    color: black;
+    background-color: rgba(255,255,255, .2);
+    padding: .5rem;
+    
+    
+}
+
+.card .img-container img {
+    width: 100%;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+}
+.card .img-container {
+    
+    margin-bottom: 0px;
+}
+
+.card .card-body {
+    background-color: #f8f8f8;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    margin-top: -3px;
+    padding: .5rem 
+}
+
+.card .card-body h5 {
+    font-size: 1.2rem;
+    margin-bottom: .3rem;
+}
+
+.card .card-body h6 {
+    font-size: .8rem;
+    margin-bottom: .4rem;
+    font-weight: 500;
+}
+
+.card .card-body .consumption-method {
+    font-size: .7rem;
+    margin-bottom: .4rem;
+    font-weight: 500;
+}
+
+.card .card-body p {
+    font-size: .8rem;
+    margin-bottom: .3rem;
+    font-weight: 300
+}
