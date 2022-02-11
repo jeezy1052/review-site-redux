@@ -16,10 +16,13 @@
   justify-content: center;
   padding: 1rem;
   margin-left: auto;
+  margin-right: 5rem;
+  
 }
 
 .review h1 {
   color: #f8f8f8;
+  font-size: 4rem;
 }
 
 .review .blue {
@@ -33,6 +36,8 @@
   flex-direction: column;
   justify-content: center;
   padding: 1rem;
+  margin-right: 5rem;
+  
 }
 .review form {
   display: flex;
@@ -92,5 +97,30 @@
   
   .review .select-container #rating {
     width: 100%;
+  }
+
+  .review .container {
+    height: 95vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    
+  }
+
+  .review h1 {
+    font-size: 3rem;
+    margin-right: 10rem;
+    
+  }
+
+  .review .form-container {
+    max-width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 1rem;
+    margin-right: 5rem;
+    
   }
 }

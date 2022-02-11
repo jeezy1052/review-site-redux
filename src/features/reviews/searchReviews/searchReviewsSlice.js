@@ -1,7 +1,7 @@
 // import { createSlice, createAsyncThunk } from '@reduxjs/toolkit'
 
-// export const getReviews = createAsyncThunk(
-//     "reviews/getReviews",
+// export const getSearchReviews = createAsyncThunk(
+//     "reviews/getSearchReviews",
 //     async () => {
 //         const response =  await fetch('http://localhost:5000/')
 //         const formatRes = await response.json() 
@@ -11,20 +11,20 @@
 
 
 
-// export const reviewsSlice = createSlice({
-//     name: "reviewers",
+// export const getSearchReviewsSlice = createSlice({
+//     name: "searchReview",
 //     initialState: {
-//         reviews: [],
+//         searchReviews: [],
 //     },
 //     extraReducers: {
-//         [getReviews.pending]: (state, action) => {
+//         [getSearchReviews.pending]: (state, action) => {
 //             state.status = "loading"
 //         },
-//         [getReviews.fulfilled]: (state, action) => {
+//         [getSearchReviews.fulfilled]: (state, action) => {
 //             state.status = "success"
-//             state.reviews = action.payload
+//             state.searchReviews = action.payload
 //         },
-//         [getReviews.rejected]: (state, action) => {
+//         [getSearchReviews.rejected]: (state, action) => {
 //             state.status = "failed"
 //         }
 //     }
@@ -33,4 +33,4 @@
 // // export const {addReviews} = reviewsSlice.actions
 // // export const getAllReviews = (state) => state.reviews.reviews
 
-// export default reviewsSlice.reducer
+// export default getSearchReviewsSlice.reducer

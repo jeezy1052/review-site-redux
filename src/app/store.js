@@ -2,8 +2,11 @@
 // import reviewsReducer from '../features/reviews/reviewsSlice'
 
 
-// export const store = configureStore({
+
+// const store = configureStore({
 //     reducer: {
-//         reviews: reviewsReducer,
+//         reviewers: reviewsReducer,
 //     },
 // })
+
+// export default store

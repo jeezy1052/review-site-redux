@@ -1,20 +1,38 @@
 import React, { useEffect, useState } from 'react'
-
-import Card from '../components/Card/Card'
 import axios from 'axios'
-import { addReviews } from '../features/reviews/reviewsSlice'
-import { getAllReviews } from '../features/reviews/reviewsSlice'
+import { useSelector, useDispatch } from 'react-redux'
+import { getReviews, getReviewsBySearch } from '../actions/reviews'
+import Card1 from './Card1'
+
+
 import './DatabaseStyles.css'
 
 
 
 
+
 const Database = () => {
-   
-  const [listOfReviews, setListOfReviews] = useState([]);
-  // const reviews = useSelector(getAllReviews)
   
 
+  // const dispatch = useDispatch()
+  // const [search, setSearch] = useState('')
+  
+ 
+  
+  // const reviews = useSelector((state) => state.reviews)
+
+  
+  // useEffect(() => {
+  //   setReviewer(reviews)
+  //   dispatch(getReviews());
+  // }, [dispatch]);
+  
+ 
+  
+  const [listOfReviews, setListOfReviews] = useState([]);
+  const [searchTerm, setSearchTerm] = useState('')
+
+  
   useEffect(() => {
     axios.get('http://localhost:5000/')
       .then((response) => {
@@ -25,29 +43,11 @@ const Database = () => {
       })
     
   }, [])
+
+
   
-  
-
-  // useEffect(() => {
-    
-    
-  //      axios.get('http://localhost:5000/database')
-  //       .then((response) => {
-  //         setListOfReviews(response.data)
-  //         console.log(response.data)
-  //       })
-  //       .catch((error) => {
-  //         console.log("Error:", error)
-  //       })
-
-      
-  //     // dispatch(addReviews(response.data))
-      
-  //   }
-
-    
-  // }, [])
-
+  console.log(listOfReviews)
+ 
   
   
 
@@ -55,27 +55,36 @@ const Database = () => {
   <div className='database'>
     <div className='container'>
       <div className='content'>
-        {/* <h1>Browse Our Database</h1> */}
-        {listOfReviews.map((reviews, key) => (
-          <Card reviews={reviews} key={key} />
+        {/* {reviews.map((review) => (
+          <Card1 review={review} key={review._id} />
+        ))}   */}
+        {listOfReviews.filter((reviews) => {
+          if(searchTerm == "") {
+            return reviews
+          } else if(reviews.strainName.toLowerCase().includes(searchTerm.toLowerCase())) {
+            return reviews
+          } else if(reviews.rating.includes(searchTerm)) {
+            return reviews
+          } else if(reviews.consumptionMethod.toLowerCase().includes(searchTerm.toLowerCase())) {
+            return reviews
+          }
+        }).map((reviews, key) => (
+          
+          <Card1 reviews={reviews} key={key} />
+          
         ))}
-        
-        
-        <Card  />
-        <Card />
-        <Card />
       </div>
       <div className='filter-container'>
         <h4>Search Review By Rating</h4>
         <div className='form-container'>
-          <form>
             <label>Filter by Strain</label>
-            <input type='text' placeholder='Strain name'/>
+            <input name="search" type='text' placeholder='Strain name'  onChange={(e) => setSearchTerm(e.target.value)} />
+          <form>
             <label>Filter by Consumption Method</label>
             <input type='text' placeholder='Consumption Method'/>
             <label>Filter by Rating</label>
             <input type='text' placeholder='Rating'/>
-            <button>Submit</button>
+            <button >Search</button>
           </form>
         </div>
       </div>
